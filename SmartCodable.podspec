@@ -11,7 +11,7 @@
 
 
 Pod::Spec.new do |s|
-  s.name             = 'SmartCodable'
+  s.name             = 'SmartCodableSDK'
   s.version          = '5.1.4'
   s.summary          = 'Swift数据解析库'
   
