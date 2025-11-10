@@ -3,13 +3,13 @@ import CompilerPluginSupport
 import PackageDescription
 
 let package = Package(
-    name: "SmartCodable",
+    name: "SmartCodableSDK",
     platforms: [.macOS(.v10_15), .iOS(.v13), .tvOS(.v13), .watchOS(.v6), .macCatalyst(.v13), .visionOS(.v1)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "SmartCodable",
-            targets: ["SmartCodable"]
+            name: "SmartCodableSDK",
+            targets: ["SmartCodableSDK"]
         ),
         .library(
             name: "SmartCodableInherit",
@@ -38,8 +38,8 @@ let package = Package(
 
         // Library that exposes a macro as part of its API, which is used in client programs.
         .target(
-            name: "SmartCodable",
-            exclude: ["MacroSupport"]),
+            name: "SmartCodableSDK",
+            path: "Sources/SmartCodable/Core"),
         
         .target(
             name: "SmartCodableInherit",
@@ -52,7 +52,7 @@ let package = Package(
         .testTarget(
             name: "SmartCodableTests",
             dependencies: [
-                "SmartCodable",
+                "SmartCodableSDK",
                 "SmartCodableInherit",
                 "SmartCodableMacros",
                 .product(name: "SwiftSyntaxMacrosTestSupport", package: "swift-syntax"),
